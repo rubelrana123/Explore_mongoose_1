@@ -20,5 +20,6 @@ export const getUserById = async (req: Request, res : Response,next :  NextFunct
     res.send( user )
     
 }
+ 
 //pattern
 //route => controller => service

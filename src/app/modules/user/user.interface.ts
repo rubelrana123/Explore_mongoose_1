@@ -1,6 +1,6 @@
 export interface IUser {
     id : string;
-    role : string;
+    role? : "student";
     password : string;
     name : {
       firstName : string,

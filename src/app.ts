@@ -1,19 +1,20 @@
-import express, { Application, NextFunction, Request, Response } from 'express';
-import cors from 'cors';
+import express, { Application } from "express";
+import cors from "cors";
+const app: Application = express();
 
-const app : Application = express();
-//app;ication route
-import UserRoutes from "./app/modules/user/user.route"
-// const port = 5000;
-//using cors
-app.use(cors()); 
-//parse data
+// Application routes
+import userRoutes from "./app/modules/user/user.route";
+
+// using cors
+app.use(cors());
+
+// parse data
 app.use(express.json());
-app.use(express.urlencoded({extended : true}))
-// app.get('/api/v1/user', UserRoutes)
-app.use("/api/v1/user", UserRoutes)
+app.use(express.urlencoded({ extended: true }));
 
-  export default app;
+app.use("/api/v1/user", userRoutes);
+
+export default app;
   //pattren mvc, modular
 
   /* 

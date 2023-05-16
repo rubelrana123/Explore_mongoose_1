@@ -42,7 +42,7 @@ app.get('/', (req : Request, res : Response, next : NextFunction) => {
   //create schema using interafce
   const userSchema = new Schema<IUser>({
     id : {type : String, required : true, unique : true},
-    role :{ type : String, required : true, unique : true},
+    role :{ type : String, required : true},
     password : { type : String, required : true},
     name : {
       firstName : {
@@ -69,9 +69,31 @@ app.get('/', (req : Request, res : Response, next : NextFunction) => {
   //create model
   const User = model<IUser>('User', userSchema);
   
+  const createUserToDb = async () =>{
 
-    // res.send('Hello World!');
-    // next()
+    const user = new User({
+      id : "778",
+      role : "teacher",
+      password :"54545455",
+      name : {
+        firstName : "Sohel",
+        lastName :  "Rana"
+      },
+      
+      gender : "male",
+      email : "abc@gmail.com",
+      contactNo : "01705918931",
+      emergencyContactNo : "9999",
+      presentAddress : "Dinajpur",
+      permanentAddress : "parbatipur",
+    });
+    await user.save();
+    console.log(user)
+  }
+  createUserToDb();
+
+  next()
+  res.send("Hello server")
   })
 
   export default app;

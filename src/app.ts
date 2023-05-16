@@ -1,5 +1,31 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+
+const app : Application = express();
+// const port = 5000;
+//using cors
+app.use(cors()); 
+//parse data
+app.use(express.json());
+app.use(express.urlencoded({extended : true}))
+app.get('/')
+
+  export default app;
+  //pattren mvc, modular
+
+  /* 
+  interface => interafce.ts
+  schema and model => model.ts
+  route => 
+  route function => controller.ts
+  database query function => service
+  b 
+  */
+
+
+
+/* import express, { Application, NextFunction, Request, Response } from 'express';
+import cors from 'cors';
 import { Schema, model } from 'mongoose';
 // const express = require('express')
 // const mongoose = require('mongoose');
@@ -17,7 +43,7 @@ app.get('/', (req : Request, res : Response, next : NextFunction) => {
   step 1 : interface
   step : schema
   step 3 : model
-  step 4 : database query */
+  step 4 : database query  
   //create interface
 
   interface IUser {
@@ -73,7 +99,7 @@ app.get('/', (req : Request, res : Response, next : NextFunction) => {
 
     const user = new User({
       id : "778",
-      role : "teacher",
+      role : "student",
       password :"54545455",
       name : {
         firstName : "Sohel",
@@ -93,7 +119,6 @@ app.get('/', (req : Request, res : Response, next : NextFunction) => {
   createUserToDb();
 
   next()
-  res.send("Hello server")
   })
 
-  export default app;
+  export default app; */

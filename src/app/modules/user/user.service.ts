@@ -1,3 +1,4 @@
+import { getAdminUsers } from './user.controller';
 import { IUser } from "./user.interface";
 import { User } from "./user.model";
 
@@ -24,8 +25,12 @@ export const createUserToDb = async (payload : IUser) : Promise<IUser> => {
     return user;
    }
     
-  export const getAdminUserFromDb = async(payload : string) : Promise<IUser | null>  =>{
-    const user1 = new User(); 
+  export const getAdminUserFromDb = async( )  =>{
+    const admins = await User.getAdminUsers() ; 
+    return admins;
    }
     
- 
+ //class => attach => method => directly call using calss
+ // user => new User
+ //user . instanceMethod
+ //User.getAdminsUser();

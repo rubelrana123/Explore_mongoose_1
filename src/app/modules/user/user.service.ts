@@ -9,7 +9,7 @@ export const createUserToDb = async (payload : IUser) : Promise<IUser> => {
      console.log(user.fullName()) // custom instance method
     console.log(user)
 
-    return user;
+    return user;  
   }
 
   export const getUserFromDb = async() : Promise<IUser[]> =>{
